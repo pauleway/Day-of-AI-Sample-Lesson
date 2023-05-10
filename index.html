@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Day of AI - Lyric Prediction</title>
+
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <style>
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Create the tabs -->
+  <div class="tab">
+    <div class="right">
+      <img src="AIforCA.png" alt="AIforCA" width="100">
+    </div>
+    <h1>Day of AI - Lyric Prediction</h1>
+    <div>
+      <button class="tablinks" onclick="openTab(event, 'intro')">Intro</button>
+      <button class="tablinks" onclick="openTab(event, 'train')">Step 1: Train</button>
+      <button class="tablinks" onclick="openTab(event, 'evaluate')">Step 2: Evaluate</button>
+      <button class="tablinks" onclick="openTab(event, 'test')">Step 3: Test</button>
+    </div>
+
+    <!-- Intro  -->
+    <div id="intro" class="tabcontent" style="max-width: 1000px;">
+      <hr>
+      <h3> Intro </h3>
+      <p>
+        Large language models are computer programs that can understand and generate human language. They are built
+        using artificial intelligence and machine learning algorithms.
+      </p>
+      <p>To understand how large language models work, it's important to know that they are trained on vast amounts of
+        text data. The more data they are trained on, the better they can understand and generate language. </p>
+      <p>
+        The training process involves exposing the model to a huge corpus of text, like books, articles, and websites.
+        The model then uses statistical patterns in the text to learn how words and phrases are related to each other,
+        as well as how to predict the next word in a sentence.
+      </p>
+      <p>
+        Once the model is trained, it can be used to generate human-like text. This is done by giving the model a
+        prompt, like a sentence or a question, and letting it generate a response based on what it has learned during
+        training.
+      </p>
+      <p>
+        Large language models are used in a variety of applications, from language translation and chatbots to voice
+        assistants and text completion tools. They are constantly improving as they are exposed to more data, and have
+        the potential to revolutionize the way we communicate and interact with technology.
+      </p>
+      <br>
+      <p>In a large language model, attention is a mechanism that helps the model focus on specific parts of the input
+        text when predicting the next word in a sentence.</p>
+      <p>When the model is given a sentence to predict the next word, it first encodes the sentence into a set of hidden
+        representations, called the encoder. This encoder contains information about the sentence, such as the
+        relationships between the words and the context of the sentence.</p>
+      <p>Then, the attention mechanism is applied to the encoder. The attention mechanism computes a set of weights,
+        indicating how important each hidden representation in the encoder is for predicting the next word. These
+        weights are based on how well the hidden representations match the current state of the model and the context of
+        the sentence.</p>
+      <p>The attention mechanism then uses these weights to create a new, weighted sum of the hidden representations,
+        called the context vector. The context vector captures the most relevant information in the encoder for
+        predicting the next word.</p>
+      <p>Finally, the context vector is passed through the decoder, which predicts the probability distribution over all
+        possible words in the vocabulary. The decoder uses the context vector to generate the next word that is most
+        likely to appear in the sentence.</p>
+      <p>By using attention, the model can selectively focus on the parts of the input text that are most relevant for
+        predicting the next word, rather than treating all parts of the input equally. This makes the model more
+        accurate and efficient at predicting the next word in a sentence.</p>
+      <p style="font-style: italic;">Written by chatGPT, and edited by humans. </p>
+
+    </div>
+
+
+
+    <!-- Tab 1  -->
+    <div id="train" class="tabcontent">
+      <hr>
+      <h3> Train:
+        <select id="trainSelect">
+          <option value="none">Select an artist</option>
+        </select>
+      </h3>
+      <textarea id="textInput"></textarea><br />
+      <div>What word comes next?</div>
+      <input type="text" id="output" onchange="generateButtons()" style="width:400px;">
+      <br />
+
+      <hr>
+      <div id="buttonContainer"></div>
+      <p>Model: <button onclick="getLyrics()" id="getTestLyrics" disabled="true">Next Lyric</button>
+      </p>
+      <textarea id="dictionary" style="width: 600px;"></textarea>
+    </div>
+
+
+
+    <div id="evaluate" class="tabcontent">
+      <hr>
+      <h3> Evaluate </h3>
+      <button onclick="evaluateModel()">Evaluate Model</button>
+      <hr>
+
+      <div id="table"></div>
+
+
+    </div>
+
+
+    <div id="test" class="tabcontent">
+      <hr>
+      <h3> Test: </h3>
+
+      <select id="testSelect">
+        <option value="none">Select an artist</option>
+      </select>
+      <!-- <button onclick="getTestLyrics()">Test Lyrics</button><br /> -->
+      <h5>Model:</h5>
+      <textarea id="finalModel" style="width:400px;"></textarea><br />
+      <!-- <textarea id="testLyrics"></textarea><br /> -->
+
+      <button onclick="testModel()">Test Lyrics</button><br />
+      <div id="testTable"></div><br />
+
+
+    </div>
+
+  </div>
+  <script src="lyrics.js"></script>
+  <script src="script.js"></script>
+
+  <script src="https://replit.com/public/js/replit-badge-v2.js" theme="dark" position="bottom-right"></script>
+
+</body>
+
+</html>
