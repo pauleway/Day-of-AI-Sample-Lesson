@@ -48,8 +48,11 @@ openTab(null, 'intro');
 
 
 
-
-
+function reveal() {
+  let lastLyric = trainData[currentLyric - 1].split(" ").pop();
+  document.getElementById("output").value = lastLyric;
+  generateButtons();
+}
 
 
 function getLyrics() {
